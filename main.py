@@ -55,28 +55,32 @@ C0R190_data = list(filter(lambda item: item['station_id'] == 'C0R190', data)) # 
 C0X260_data = list(filter(lambda item: item['station_id'] == 'C0X260', data)) # Have checked: -99.000 all in other items, not in HUMD
 
 # Find "-99.000" and "-999.000", and substitute to "None"
-#b1=C0A880_data.index('-99.000')
-#c1=C0A880_data.index('-999.000')
-#C0A880_data[b1] = "None"
-#C0A880_data[c1] = "None"
 if '-99.000' in C0A880_data or '-999.000' in C0A880_data:
    C0A880_data['HUMD'] = "None"
+if '-99.000' in C0F9A0_data or '-999.000' in C0F9A0_data:
+   C0F9A0_data['HUMD'] = "None"
+if '-99.000' in C0G640_data or '-999.000' in C0G640_data:
+   C0G640_data['HUMD'] = "None"
+if '-99.000' in C0R190_data or '-999.000' in C0R190_data:
+   C0R190_data['HUMD'] = "None"
+if '-99.000' in C0X260_data or '-999.000' in C0X260_data:
+   C0X260_data['HUMD'] = "None"
 
 
 
 # Store HUMD data value
 C0A880_HUMD = [row['HUMD'] for row in C0A880_data]
-#C0F9A0_HUMD = [row['HUMD'] for row in C0F9A0_data]
-#C0G640_HUMD = [row['HUMD'] for row in C0G640_data]
-#C0R190_HUMD = [row['HUMD'] for row in C0R190_data]
-#C0X260_HUMD = [row['HUMD'] for row in C0X260_data]
+C0F9A0_HUMD = [row['HUMD'] for row in C0F9A0_data]
+C0G640_HUMD = [row['HUMD'] for row in C0G640_data]
+C0R190_HUMD = [row['HUMD'] for row in C0R190_data]
+C0X260_HUMD = [row['HUMD'] for row in C0X260_data]
 
 # Sum
 C0A880_Sum = sum(list(map(float,C0A880_HUMD)))
-#C0F9A0_Sum = sum(list(map(float,C0F9A0_HUMD)))
-#C0G640_Sum = sum(list(map(float,C0G640_HUMD)))
-#C0R190_Sum = sum(list(map(float,C0R190_HUMD)))
-#C0X260_Sum = sum(list(map(float,C0X260_HUMD)))
+C0F9A0_Sum = sum(list(map(float,C0F9A0_HUMD)))
+C0G640_Sum = sum(list(map(float,C0G640_HUMD)))
+C0R190_Sum = sum(list(map(float,C0R190_HUMD)))
+C0X260_Sum = sum(list(map(float,C0X260_HUMD)))
 
 
 #=======================================
@@ -90,8 +94,8 @@ C0A880_Sum = sum(list(map(float,C0A880_HUMD)))
 
 #print(C0A880_HUMD)
 #print(C0A880_Sum)
-print(['C0A880', C0A880_Sum])
-#print([['C0A880', C0A880_Sum], ['C0F9A0', C0F9A0_Sum], ['C0G640', C0G640_Sum], ['C0R190', C0R190_Sum], ['C0X260', C0X260_Sum]])
+#print(['C0A880', C0A880_Sum])
+print([['C0A880', C0A880_Sum], ['C0F9A0', C0F9A0_Sum], ['C0G640', C0G640_Sum], ['C0R190', C0R190_Sum], ['C0X260', C0X260_Sum]])
 
 
 #========================================
